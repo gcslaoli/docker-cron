@@ -9,17 +9,17 @@ CGO_ENABLED=0
 # 编译windows 64位
 GOOS=windows
 GOARCH=amd64
-go build -o ./dist/docker-cron-${GOOS}-${GOARCH}.exe
+go build -o ./dist/docker-cron-${GOOS}-${GOARCH}-$1.exe
 
 # 编译mac 64位
 GOOS=darwin
 GOARCH=amd64
-go build -o ./dist/docker-cron-${GOOS}-${GOARCH}
+go build -o ./dist/docker-cron-${GOOS}-${GOARCH}-$1
 
 # 编译linux 64位
 GOOS=linux
 GOARCH=amd64
-go build -o ./dist/docker-cron-${GOOS}-${GOARCH}
+go build -o ./dist/docker-cron-${GOOS}-${GOARCH}-$1
 
 
 

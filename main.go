@@ -15,7 +15,7 @@ func main() {
 	// 如果带了version参数
 	args := os.Args
 	var (
-		VERSION string = "1.0.0"
+		VERSION string = "1.0.1"
 	)
 	if len(args) >= 2 && args[1] == "version" {
 		fmt.Println("docker-cron:一个go实现的任务管理器")
@@ -31,7 +31,7 @@ func main() {
 	// crontab.AddFunc("* * * * *", task)
 	crontab.AddFunc("* * * * *", shellMinutely)
 	crontab.AddFunc("0 * * * *", shellHourly)
-	crontab.AddFunc("0 0 * * *", shellMinutely)
+	crontab.AddFunc("0 0 * * *", shellDaily)
 
 	// 启动定时器
 	crontab.Start()

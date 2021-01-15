@@ -2,3 +2,4 @@ daily/
 docker-cron
 dist/
 .DS_Store
+minutely/

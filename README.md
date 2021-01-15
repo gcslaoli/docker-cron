@@ -3,7 +3,7 @@
 编译命令
 
 ```
-docker run --rm -it -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcslaoli/golang-cn sh build.sh
+docker run --rm -it -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcslaoli/golang-cn sh build.sh v1.0.1
 ```
 
 程序运行后将从程序所在目录下查找配置目录
