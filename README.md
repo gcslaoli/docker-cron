@@ -18,3 +18,6 @@ quarterly 还没写
 yearly 还没写
 ```
 上述目录中以`.sh`结尾的文件将按周期以 `sh xxx.sh`的方式执行
+
+下载地址:
+https://github.com/GCSLaoLi/docker-cron/releases/
