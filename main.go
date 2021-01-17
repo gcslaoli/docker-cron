@@ -15,7 +15,7 @@ func main() {
 	// 如果带了version参数
 	args := os.Args
 	var (
-		VERSION string = "1.0.1"
+		VERSION string = "1.0.2"
 	)
 	if len(args) >= 2 && args[1] == "version" {
 		fmt.Println("docker-cron:一个go实现的任务管理器")
