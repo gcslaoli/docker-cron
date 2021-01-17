@@ -32,6 +32,10 @@ func main() {
 	crontab.AddFunc("* * * * *", shellMinutely)
 	crontab.AddFunc("0 * * * *", shellHourly)
 	crontab.AddFunc("0 0 * * *", shellDaily)
+	crontab.AddFunc("0 0 * * 0", shellWeekly)
+	crontab.AddFunc("0 0 1 * *", shellMonthly)
+	crontab.AddFunc("0 0 1 1,4,7,10 *", shellQuarterly)
+	crontab.AddFunc("0 0 1 1 *", shellYearly)
 
 	// 启动定时器
 	crontab.Start()
@@ -86,6 +90,70 @@ func shellHourly() {
 func shellDaily() {
 	// 按目录增加定时任务
 	files, err := ListDir("./daily", ".sh")
+	fmt.Println(files, err)
+	for i := 0; i < len(files); i++ {
+		cmd := exec.Command("sh", files[i])
+		output, err := cmd.Output()
+		if err != nil {
+			fmt.Printf("%s Execute Shell:%s failed with error:%s\n", time.Now().String(), files[i], err.Error())
+			return
+		}
+		fmt.Printf("%s Execute Shell:%s finished with output:%s\n", time.Now().String(), files[i], string(output))
+	}
+}
+
+// 每周执行
+func shellWeekly() {
+	// 按目录增加定时任务
+	files, err := ListDir("./weekly", ".sh")
+	fmt.Println(files, err)
+	for i := 0; i < len(files); i++ {
+		cmd := exec.Command("sh", files[i])
+		output, err := cmd.Output()
+		if err != nil {
+			fmt.Printf("%s Execute Shell:%s failed with error:%s\n", time.Now().String(), files[i], err.Error())
+			return
+		}
+		fmt.Printf("%s Execute Shell:%s finished with output:%s\n", time.Now().String(), files[i], string(output))
+	}
+}
+
+// 每月执行
+func shellMonthly() {
+	// 按目录增加定时任务
+	files, err := ListDir("./monthly", ".sh")
+	fmt.Println(files, err)
+	for i := 0; i < len(files); i++ {
+		cmd := exec.Command("sh", files[i])
+		output, err := cmd.Output()
+		if err != nil {
+			fmt.Printf("%s Execute Shell:%s failed with error:%s\n", time.Now().String(), files[i], err.Error())
+			return
+		}
+		fmt.Printf("%s Execute Shell:%s finished with output:%s\n", time.Now().String(), files[i], string(output))
+	}
+}
+
+// 每季度执行
+func shellQuarterly() {
+	// 按目录增加定时任务
+	files, err := ListDir("./quarterly", ".sh")
+	fmt.Println(files, err)
+	for i := 0; i < len(files); i++ {
+		cmd := exec.Command("sh", files[i])
+		output, err := cmd.Output()
+		if err != nil {
+			fmt.Printf("%s Execute Shell:%s failed with error:%s\n", time.Now().String(), files[i], err.Error())
+			return
+		}
+		fmt.Printf("%s Execute Shell:%s finished with output:%s\n", time.Now().String(), files[i], string(output))
+	}
+}
+
+// 每年执行
+func shellYearly() {
+	// 按目录增加定时任务
+	files, err := ListDir("./yearly", ".sh")
 	fmt.Println(files, err)
 	for i := 0; i < len(files); i++ {
 		cmd := exec.Command("sh", files[i])
